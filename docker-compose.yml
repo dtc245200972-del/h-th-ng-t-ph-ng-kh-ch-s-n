@@ -1,0 +1,11 @@
+services:
+  hotel-app:
+    build: .
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD before starting}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
